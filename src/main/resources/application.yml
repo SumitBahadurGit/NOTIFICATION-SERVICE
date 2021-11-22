@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: NOTIFICATION-SERVICE
+  datasource:
+    url: jdbc:oracle:thin:@ast.caa7t0rarfoh.us-east-1.rds.amazonaws.com:1521/DATABASE
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: admin
+    password: Awskopw25!
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        user_sql_comments: true
+        format_sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://3.91.78.115:8761/eureka
+  instance:
+    hostname: ${HOST}
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - 'info'
+
+server:
+  port: 8083
+
+kafka:
+  bootstrapAddress: 3.88.113.207:9092
